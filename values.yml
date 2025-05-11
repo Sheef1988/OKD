@@ -1,0 +1,42 @@
+ingress:
+  enabled: false  # Отключаем Ingress
+
+service:
+  type: NodePort  # Устанавливаем тип сервиса на NodePort
+  externalIPs:  # Здесь можно указать внешний IP, если нужно
+    - 192.168.56.109  # Указываем IP, на котором будет доступен сервис        
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30080  # Указываем NodePort, по которому будет доступен сервис
+
+rbac:
+  enabled: true
+
+console:
+  dex:
+    host: https://dex.example.org
+  baseUrl: http://console.akj.ru
+  impersonateOpenShift: false
+  oidc:
+    enabled: false
+
+
+
+#ingress:
+#  enabled: true
+#  className: "nginx"
+#  hosts:
+#    - host: console.akj.ru
+#      paths: ["/"]
+
+#rbac:
+#  enabled: true
+#
+#console:
+#  dex:
+#    host: https://dex.example.org
+#  baseUrl: http://console.akj.ru
+#  impersonateOpenShift: false
+#  oidc:
+#    enabled: false

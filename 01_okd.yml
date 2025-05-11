@@ -1,0 +1,5 @@
+root@master:/opt/manifests/okd# cat 01_okd.yml 
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: console
